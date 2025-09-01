@@ -1,0 +1,765 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+.heroSwiper{
+  position: relative;
+
+}
+.heroSwiper .swiper-wrapper{
+  position: relative;
+}
+.heroSwiper .swiper-wrapper::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient( to right, rgba(0, 57, 83, 0.7), rgba(0, 57, 83, 0.1) );
+  z-index: 1;
+}
+.heroSwiper .swiper-slide img {
+  object-fit: cover;
+  display: block;
+  width: 100vw;
+  height: 620px!important;
+  z-index: 1;
+}
+.hero-info{
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 10%;
+  width: 50%;
+  padding: 1rem 2rem;
+}
+.hero-info h3{
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+.hero-info p{
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.start-btn{
+  border-radius: 50px;
+  background-color: #33A1E0;
+  padding: 0.6rem 1.6rem;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+@media(max-width:992px){
+  .hero-info{
+    width: 80%;
+    left: 5%;
+  }
+}
+@media(max-width:480px){
+  .hero-info{
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* about-us section */
+#about-us .about-img{
+  overflow: hidden;
+  border-radius: 0.8rem;
+  height: 450px;
+  width: 100%;
+}
+#about-us .about-img img{
+  transition: all ease-in-out 0.4s;
+  width: 100%;
+}
+#about-us .about-img img:hover{
+  transform: scale(1.02);
+}
+
+#about-us .about-us{
+  padding: 0.2rem 0.6rem;
+}
+.stats-btn{
+  padding: 1rem 0.4rem;
+}
+.stats-btn h5{
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  color: #3D74B6;
+}
+.stats-btn p{
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline;
+}
+#cta{
+  background-color: #f0f8fd;
+  padding: 4rem 0.4rem;
+}
+#cta .cta-card{
+  padding: 1.8rem 2.2rem;
+  background-color: #33A1E0; 
+  border-radius: 1rem;
+}
+#cta .cta-card img{ 
+  border-radius: 50%; 
+  object-fit: cover;
+}
+#cta .cta-tag{
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+#cta .cta-body p{
+  text-align: justify;
+  color: #f1f3fd;
+}
+#cta .cta-body .cta-btn{
+  border-radius: 50px;
+  background-color: #f1f3fd;
+  padding: 0.4rem 1.2rem;
+  border: none;
+  color: #33A1E0;
+  font-weight: 600;
+}
+
+.programSwiper{
+
+}
+.programSwiper .slide{
+  position: relative;
+  border: 0.12rem solid #dcf1fc;
+  overflow: hidden;
+  border-radius: 0.6rem;
+  height: 380px;
+  transition: all ease-in-out 0.4s;
+}
+.programSwiper .slide .img{
+  overflow: hidden;
+}
+.programSwiper .slide img{
+  height: 200px;
+  width: 100%;
+  transition: all ease-in-out 0.4s;
+  object-fit: cover;
+}
+.programSwiper .slide:hover{
+  transform: translateY(-8px);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.programSwiper .slide:hover img{
+  transform: scale(1.05);
+}
+.programSwiper .slide .slide-body{
+  padding: 1rem 0.8rem;
+}
+.programSwiper .slide .slide-body h5{
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3D74B6;
+  margin-left: 0.5rem;
+}
+.programSwiper .readmore{
+  position: absolute;
+  padding: 0.3rem 0.5rem;
+  background-color: #e3f2fa;
+  color: #cdcdcd;
+  bottom: 0.4rem;
+  right: 0.2rem;
+  border-radius: 0.3rem;
+  font-style: italic;
+  font-size: 0.86rem;
+  font-weight: 400;
+  transition: all ease-in-out 0.4s;
+}
+.programSwiper .slide:hover .readmore{
+  color: #f1f1f1;
+  background-color: #33A1E0;
+}
+
+#news-event{
+  box-shadow: 0px -30px 30px rgba(0, 0, 0, 0.04);
+}
+#news-event .container-fluid{
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+@media(max-width:920px){
+  #news-event .container-fluid{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+#news-event .card-news{
+  position: relative;
+}
+#news-event .card-news img{
+  height: 520px;
+  width: 100%;
+  border-radius: 0.6rem;
+}
+#news-event .card-news::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient( to top, rgba(0, 31, 45, 0.7), rgba(0, 57, 83, 0.2) );
+  z-index: 1;
+}
+#news-event .card-news:hover::before{
+  background: linear-gradient( to top, rgba(0, 31, 45, 0.85), rgba(0, 57, 83, 0.3) );
+}
+#news-event .card-news .news-info{
+  position: absolute;
+  bottom: 0;
+  padding: 2rem 1.4rem;
+  z-index: 2;
+}
+#news-event .card-news .news-info p{
+  color: #f1f1f1;
+  font-size: 0.92rem;
+}
+#news-event .wrapper{
+  height: 520px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+@media(max-width: 740px) {
+  #news-event .wrapper{
+    height: 720px;
+  }
+}
+#news-event .news-wrapper{
+  margin-bottom: 0.8rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-radius: 0.8rem;
+}
+#news-event .news-wrapper:hover{
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  transform: translateX(6px);
+}
+.news-wrapper .thumbnail img{
+  height: 120px;
+  width: 100%;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+@media(max-width:740px){
+  .news-wrapper .thumbnail{
+    margin-bottom: 0.6rem;
+  }
+  .news-wrapper .thumbnail img{
+    height: 200px;
+  }
+}
+.news-wrapper .news h3{
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.news-wrapper .news p{
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.2rem;
+}
+.news-wrapper .news p a{
+  color: #113F67;
+}
+.news-wrapper .news:hover p a{
+  color: #33A1E0;
+}
+#our-team{
+  background-color: #f0f8fd;
+}
+.teamSwiper .swiper-slide{
+  padding: 0.6rem;
+}
+.teamSwiper .slide{
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  border: 0.15rem solid #ebf7fe;
+  background-color: #f8fbfd;
+  box-shadow: rgba(183, 226, 247, 0.4) 0px 2px 8px 0px;
+}
+.teamSwiper .slide:hover{
+  box-shadow: rgba(17, 12, 46, 0.1) 0px 48px 100px 0px;
+}
+.teamSwiper .swiper-slide .profile{
+  margin-bottom: 0.6rem;
+}
+.teamSwiper .swiper-slide .profile img{
+  height: 100px;
+  width: 116px;
+  background-color: #e4f4fd;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+.teamSwiper .swiper-slide .profile p{
+  margin-bottom: 0.2rem;
+}
+.teamSwiper .swiper-slide .profile .cont{
+  position: relative;
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-style: italic;
+}
+.teamSwiper .swiper-slide .profile .cont::after{
+  content: "";
+  position: absolute;
+  left: 130px;
+  bottom: -10px;
+  width: 20%;
+  height: 0.13rem;
+  background-color: #aee1fe;
+}
+.teamSwiper .slide .view-profile{
+  background-color: #e4f4fd;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  color: #33A1E0;
+  transition: all ease-in-out 0.4s;
+}
+.teamSwiper .slide .view-profile:hover{
+  background-color: #33A1E0;
+  color: #e4f4fd;
+}
+</style>
+<section class="m-0 p-0" id="hero">
+    <div class="container-fluid bg-primary p-0">
+        <div class="row m-0 p-0">
+            <!-- <div class="col-md-5 ">
+                <h1>Col-1</h1>
+            </div> -->
+            <div class="col-md-12 bg-secondary p-0">
+                <div class="swiper heroSwiper">
+                  <div class="swiper-wrapper ">
+                      <div class="swiper-slide ">
+                          <img class="" src="{% static 'images/slide1.jpg' %}" alt="Slide1">
+                      </div>
+                      <div class="swiper-slide ">
+                          <img class="" src="{% static 'images/slide2.jpg' %}" alt="Slide2">
+                      </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="hero-info">
+                      <div class="">
+                        <h3>The Voice of Marginalized Community</h3>
+                        <p>A youth-led organization creating a society that recognizes, observes, and respects the rights of Children, Women, and Youth.</p>
+                        <a class="start-btn mt-2" href="{% url 'what-we-do' %}">What We Do</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about-us">
+  <div class="container py-5">
+    <div class="row justify-content-around">
+      <div class="col-md-6">
+        <div class="about-img">
+          <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="">
+        </div>
+      </div>
+      <div class="col-md-5 d-flex align-items-center">
+        <div class="about-us">
+          <h3 class="sect-title">Who We Are</h3>
+          <h3>Giving a Voice to the Marginalized</h3>
+          <p>TVMC is a youth-led, non-governmental, non-partisan, and non-profit organization. The organization was founded in 2011 by a group of youth volunteers with a vision to create a society that respects the rights of children and women. The organization was officially registered as "The Voice of Marginalized Community" in 2014 by the Ministry of Community Development, Gender and Children. TVMC operates under the supervision of a board of directors. <a href="{% url 'about-us' %}"><i>Read More</i></a></p>
+          <!-- <button>Read more..</button> -->
+          <div class="row stats-btn mt-3">
+            <div class="col stats">
+              <h5>12+</h5>
+              <p>Years Experience</p>
+            </div>
+            <div class="col stats">
+              <h5>340+</h5>
+              <p>Woman Support</p>
+            </div>
+            <div class="col stats">
+              <h5>212+</h5>
+              <p>Beneficiary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="cta-card">
+          <div class="row gy-3 justify-content-center">
+            <div class="col-8 col-md-3 text-center">
+              <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="" width="200">
+            </div>
+            <div class="col-12 col-md-9">
+              <div class="cta-body">
+                <h3 class="cta-tag">Need Immediate Assistance.?</h3>
+                <p>We empower a community that respects the rights of children, women, and youth. Working to end gender-based violence, promote health, and strengthen livelihoods in Shinyanga, Tanzania.</p>
+                <a class="btn cta-btn" href="">Get Consultation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="our-program">
+  <div class="container py-4 pb-5">
+    <div class="row p-3">
+      <div class="section-title p-0">
+      <h3 class="sect-title">Our Programs</h3>
+      </div>
+      <div class="swiper programSwiper" style="--swiper-navigation-size: 20px; --swiper-navigation-color: #33A1E0;">
+        <div class="swiper-wrapper py-3">
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="img">
+              <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="">
+              </div>
+              <div class="slide-body">
+                <h5>Safe Schools and Life Skills</h5>
+                <p>Focusing on child protection and safety.ipsum dolor sit amet, consectetur adipisicing elit. Vitae libero..</p>
+              </div>
+              <a class="readmore" href="{% url 'what-we-do' %}">Read More</a>
+            </div> 
+          </div>        
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="img">
+                <img class="img-fluid" src="{% static 'images/slide2.jpg' %}" alt="">
+              </div>
+              <div class="slide-body">
+                <h5>Gender-Based Violence</h5>
+                <p>Working to prevent gender-based violence. Lorem, ipsum Rem voluptate deserunt at quae tempore..</p>
+              </div>
+              <a class="readmore" href="{% url 'what-we-do' %}">Read More</a>
+            </div>
+          </div>        
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="img">
+                <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="">
+              </div>
+              <div class="slide-body">
+                <h5>Health Initiatives</h5>
+                <p>Addressing the prevention of malaria and promoting nutrition to end stunting in children..</p>
+              </div>
+              <a class="readmore" href="{% url 'what-we-do' %}">Read More</a>
+            </div>
+          </div>        
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="img">
+                <img class="img-fluid" src="{% static 'images/slide1.jpg' %}" alt="">
+              </div>
+              <div class="slide-body">
+                <h5>Advocacy</h5>
+                <p>Advocating against harmful traditional practices in the community deserunt at quae tempore..</p>
+              </div>
+              <a class="readmore" href="{% url 'what-we-do' %}">Read More</a>
+            </div>
+          </div>        
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="img">
+                <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="">
+              </div>
+              <div class="slide-body">
+                <h5>Economic Strengthening</h5>
+                <p>Mobilizing farmers into groups to adopt good agricultural practices and strengthening household..</p>
+              </div>
+              <a class="readmore" href="{% url 'what-we-do' %}">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news-event">
+  <div class="container-fluid py-5">
+    <div class="row gy-4">
+      <div class="col-md-9">
+        <div class="section-title text-center">
+          <h3 class="sect-title">News And Event</h3>
+        </div>
+        <div class="row gy-4">
+          <div class="col-md-5">
+            <div class="card-news">
+              <img class="" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              <div class="news-info">
+                <h3 class="text-light news-heading" style="font-size: 1.4rem;">TVMC is proud to coordinate the participation of legal. mshndn sms.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, explicabo molestiae quia molestias eos adipisci quaerat accusamus eum pariatur odit beatae. Rerum id ipsa officiis dolore beatae quod quis maxime...</p>
+                <a class="btn btn-primary" href="">Read More..</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 wrapper ps-3 pe-3">
+            <div class="row news-wrapper">
+              <div class="col-md-3 thumbnail d-flex">
+                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              </div>
+              <div class="col-md-9 news">
+                <h3>TVMC is proud to coordinate the participation of legal. mshndn sms</h3>
+                <p><a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert somehow ipsum dolor sit, amet consectetur adipisicing elit.</a></p>
+                <small class="text-muted"><i>Posted: 12 July 2025</i></small>
+              </div>
+            </div>
+
+            <div class="row news-wrapper">
+              <div class="col-md-3 thumbnail">
+                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              </div>
+              <div class="col-md-9 news">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
+              </div>
+            </div>
+
+            <div class="row news-wrapper">
+              <div class="col-md-3 thumbnail">
+                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              </div>
+              <div class="col-md-9 news">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
+              </div>
+            </div>
+
+            <div class="row news-wrapper">
+              <div class="col-md-3 thumbnail">
+                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              </div>
+              <div class="col-md-9 news">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
+              </div>
+            </div>
+
+            <div class="row news-wrapper">
+              <div class="col-md-3 thumbnail">
+                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              </div>
+              <div class="col-md-9 news">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="artcles ps-3 pe-3">
+        Important Articles
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="our-team">
+  <div class="container py-4">
+    <div class="row">
+      <div class="text-center section-title">
+        <h3 class="sect-title">Our Team</h3>
+      </div>
+      <div class="swiper teamSwiper" style="--swiper-navigation-size: 20px; --swiper-navigation-color: #33A1E0;">
+        <div class="swiper-wrapper py-3">
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof1.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Mr. Musa Jonas</h5>
+                <p>Executive Director</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>He is an overseer and lead of all projects and human resources in the organization for day to day execution of activities and management. ...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof2.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Mr. Adiana Leonard</h5>
+                <p>Project Officer</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>He is an overseer and lead of all projects and human resources in the organization for day to day execution of activities and management...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof4.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Miss. Jovitha Joseph</h5>
+                <p>Project Accountant</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>Takes the active roles for financial management of the entire organization and that of the OVC project; prepares monthly, quarterly...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof3.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Mr. Joseph Bagila</h5>
+                <p>M & E Officer</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>Is responsible for compiling program reports, data collection, and tools development for the management and control of the project...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof4.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Miss. Nasma Habibu</h5>
+                <p>Field Officer </p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>Is responsible for collecting data and field information reports. Support in Prepares monitoring tools and evaluation plan/matrix...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block script %}
+<script>
+  var hero = new Swiper(".heroSwiper", {
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+      
+    },
+    speed: 5000,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: false,
+    },
+  });
+
+  var program = new Swiper(".programSwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 2000,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      520: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1420: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+    },
+  });
+
+  var team = new Swiper(".teamSwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 2000,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      772: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1324: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      2024: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
+  })
+
+</script>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVMC</title>
+
+        <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-5.3.8-dist/css/bootstrap.min.css' %}">
+
+     <!-- boxicons -->
+    <link rel="stylesheet" href="{% static 'vendor/boxicons/css/boxicons.min.css' %}">
+
+    <!-- swiper js -->
+    <link rel="stylesheet" href="{% static 'vendor/swiper-11.2.10/package/swiper-bundle.min.css' %}">
+
+    <!-- aos -->
+    <link rel="stylesheet" href="{% static 'vendor/aos/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
+
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            background-color: #f8fbfd;
+        }
+        a,p,h1,h2,h3,h4,h5,h6,small{
+            color: #113F67;
+        }
+        a{
+            text-decoration: none;
+            color: #33A1E0;
+        }
+        .sect-title{
+            position: relative;
+            font-family: "Akaya Kanadaka", system-ui;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 1.9rem;
+            margin-bottom: 2rem;
+            display: inline-block!important;
+            color: #33A1E0;
+        }
+        .sect-title::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40%;
+            height: 0.13rem;
+            background-color: #33A1E0;
+        }
+    </style>
+</head>
+<body> 
+    {% include "navbar.html" %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% include "footer.html" %}
+
+    <!-- script -->
+    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-5.3.8-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="{% static 'vendor/swiper-11.2.10/package/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'main.js' %}"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    {% block script %}
+    {% endblock %}
+
+</body>
+</html>
