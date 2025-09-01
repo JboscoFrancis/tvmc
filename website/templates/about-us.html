@@ -2,5 +2,388 @@
 {% load static %}
 
 {% block content %}
-<section></section>
+
+<style>
+    .about-col-one{
+        padding: 0.6rem;
+    }
+    .about-col-one h3{
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 3.2rem;   
+        margin-bottom: 2rem;
+    }
+    .about-col-one h3::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 50%;
+        height: 2px;
+        bottom: -12px;
+        background-color: #33A1E0;
+    }
+
+    .about-col-two{
+        padding: 0.6rem;
+    }
+    .about-col-two .img img{
+        height: 400px;
+        width: 100%;
+        border-radius: 1rem;
+    }
+    .stats{
+        padding: 2.4rem;
+    }
+    .stat{
+        background-color: #fff;
+        width: 100%;
+        margin-bottom: 1.4rem;
+        padding: 1rem;
+    }
+    .vision-mission{
+        margin-top: 0.6rem;
+
+    }
+    .vision-mission .card{
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        border: none;
+    }
+    .vision-mission .card h3{
+        font-size: 1.2rem;
+    }
+    .core-values{
+        border-radius: 0.6rem;
+        border: 1px solid #d8effc;
+    }
+    .core-values h3{
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .core-values .value{
+        text-align: center;
+        align-items: center;
+        border: 1px solid #d8effc;
+        border-radius: 0.6rem;
+        padding: 0.6rem 0.4rem;
+    }
+    .core-values .value h5{
+        font-size: 1.1rem;
+    }
+
+    .org-structure{
+
+    }
+    .org-structure img{
+        height: 540px;
+        width: 100%;
+    }
+
+
+.boardSwiper .swiper-slide{
+  padding: 0.6rem;
+}
+.boardSwiper .slide{
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  border: 0.15rem solid #ebf7fe;
+  background-color: #f8fbfd;
+  box-shadow: rgba(183, 226, 247, 0.4) 0px 2px 8px 0px;
+}
+.boardSwiper .slide:hover{
+  box-shadow: rgba(17, 12, 46, 0.1) 0px 48px 100px 0px;
+}
+.boardSwiper .swiper-slide .profile{
+  margin-bottom: 0.6rem;
+}
+.boardSwiper .swiper-slide .profile img{
+  height: 100px;
+  width: 116px;
+  background-color: #e4f4fd;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+.boardSwiper .swiper-slide .profile p{
+  margin-bottom: 0.2rem;
+}
+.boardSwiper .swiper-slide .profile .cont{
+  position: relative;
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-style: italic;
+}
+.boardSwiper .swiper-slide .profile .cont::after{
+  content: "";
+  position: absolute;
+  left: 130px;
+  bottom: -10px;
+  width: 20%;
+  height: 0.13rem;
+  background-color: #aee1fe;
+}
+.boardSwiper .slide .view-profile{
+  background-color: #e4f4fd;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  color: #33A1E0;
+  transition: all ease-in-out 0.4s;
+}
+.boardSwiper .slide .view-profile:hover{
+  background-color: #33A1E0;
+  color: #e4f4fd;
+}
+</style>
+<section>
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <div class="about-col-one">
+                    <h3>Giving a Voice to the Marginalized Community</h3>
+
+                    <div class="decripptions">
+                        <p>TVMC is a youth-led, non-governmental, non-partisan, and non-profit organization. The organization was founded in 2011 by a group of youth volunteers with a vision to create a society that respects the rights of children and women. The organization was officially registered as "The Voice of Marginalized Community" in 2014 by the Ministry of Community Development, Gender and Children. TVMC operates under the supervision of a board of directors</p>
+
+                        <p>TVMC utilizes a community-based approach to ensure well-strengthened and engaging systems for the protection of children, youth, and women. We use trained staff, volunteers, and work with government officials to implement physical, educational, and cultural enrichment activities. We also use community meetings, educational materials, media campaigns, and legal aid services. Our programs are designed to create a strong voice for young people to actively demand their human and legal rights through a solutions-focused approach.</p>
+
+                        <h5>TVMC focuses on three core program areas:</h5>
+                        <ul>
+                            <li><strong>Safe schools and life skills: </strong> This includes child protection, addressing gender-based violence, preventing malaria, and improving nutrition to end stunting in children.</li>
+                            <li><strong>Advocacy and community support: </strong>The organization advocates against harmful traditional practices, provides support for parenting and family relationships, and offers response and support services. [cite_start]TVMC also works to address the TB epidemic through community-based interventions.</li>
+                            <li><strong>Economic strengthening:</strong> TVMC mobilizes farmers, promotes good agricultural practices, and works on household economic strengthening to address issues related to HIV/AIDS.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-col-two">
+                    <div class="img">
+                        <img src="{% static 'images/about.jpg' %}" alt="">
+                    </div>
+                    <div class="stats">
+                        <div class="row text-center justify-content-center">
+                            <div class="col-6 d-flex">
+                                <div class="stat">
+                                    <h4>13</h4>
+                                    <P>Years Experience</P>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex">
+                                <div class="stat">
+                                    <h4>321</h4>
+                                    <P>Woman Helped</P>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex">
+                                <div class="stat">
+                                    <h4>112</h4>
+                                    <P>School Supported</P>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex">
+                                <div class="stat">
+                                    <h4>562</h4>
+                                    <P>Youth Involved</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="vision-mission">
+                    <div class="card">
+                        <h3>Our Vision</h3>
+                        <p>Is to have a community in which children, youth, and women experience fulfilment and contentment in their lives.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <p>Foster a community where children, youth, and women thrive, experiencing fulfillment, contentment, and a meaningful quality of life.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="core-values">
+                    <h3>Core programatic areas</h3>
+                    <div class="row pt-3 gy-3">
+                        <div class="col-md-4 d-flex">
+                            <div class="value">
+                                <h5>Education:</h5>
+                                <p>Improve access to quality education in both pre-primary, Primary, and secondary schools. </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <div class="value">
+                                <h5>Poverty Reduction</h5>
+                                <p>Smart climate agriculture and ultra-poor graduation interventions </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <div class="value">
+                                <h5>Crosscutting issues</h5>
+                                <p>Awareness and prevention of malaria, HIV/AIDS, and TB response interventions. Nutrition interventions for children and pregnant mothers. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h3>TVMC Sturcture</h3>
+                <div class="org-structure">
+                    <img class="" src="{% static 'images/org-structure.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h3>Board Members</h3>
+                  <div class="swiper boardSwiper" style="--swiper-navigation-size: 20px; --swiper-navigation-color: #33A1E0;">
+        <div class="swiper-wrapper py-3">
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof1.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Japhet Daud </h5>
+                <p>Executive Director</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>Provides an advisory role to the Board on program management and implementation. And serves as chairman to the board...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof2.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">David Madata </h5>
+                <p>Project Officer</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>provides advisory role on financial management...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof4.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Dr. Meshack Kulwa </h5>
+                <p>Project Accountant</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>has vast experience on women development, health and child protection. He provides advisor role on program design to ensure gender issues are integrated across our programs and activities...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof3.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Musa Jonas </h5>
+                <p>M & E Officer</p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>oversee the day to day operations of the organization as an Executive Director and serves as Secretary to the Board of Directors...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof4.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Miss. Hilda Joseph </h5>
+                <p>Field Officer </p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>provides advisory role on OVC and child protection matters. She is a teacher by profession...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+        <div class="swiper-slide">
+            <div class="slide">
+              <div class="profile" style="display: block; height: 100px;">
+                <img src="{% static 'images/prof4.png' %}" alt="" style="float: left;">
+                <h5 class="name pt-2">Nuru lugunira </h5>
+                <p>Field Officer </p>
+                <p class="cont">+255754635476</p>
+              </div>
+              <div class="intro">
+                <p>provides an advisory role on M&E systems and program accountability on entrusted deliverables by our donor and well wishers donating to our organization. Moshi Kanji - She holds a diploma in Nursing and provides advisory role to the board on health related issues...</p>
+              </div>
+              <a class="ms-3 view-profile" href="#">View Profile</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+      var team = new Swiper(".boardSwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    speed: 2000,
+    autoplay: {
+      delay: 8000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      772: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1324: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      2024: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
+  })
+</script>
 {% endblock %}
