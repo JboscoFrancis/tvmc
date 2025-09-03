@@ -2,5 +2,88 @@
 {% load static %}
 
 {% block content %}
+<style>
+.cont-us{
+    padding: 3rem;
+}
+.cont-us i{
+    font-size: 4rem;
+    color: #A64D79;
+    font-weight: 800!important;
+}
+.cont-us h5{
+    font-weight: 700;
+}
 
+.social-media >div{
+    margin-top: 1rem;
+}
+.social-media a{
+    color: #3D0301;
+    transition: all 0.3s;
+}
+.social-media i{
+    font-size: 1.9rem;
+    margin-right: 0.6rem;
+    color: #A64D79;
+}
+
+.social-media a:hover{
+    color: #A64D79;
+    font-size: 1.1rem;
+}
+</style>
+<section class="pt-3">
+    <div class="container cont-us">
+        <div class="row justify-content-around text-center">
+            <div class="col-md-4">
+                <img class="img-fluid" src="{% static 'images/contact-us.svg' %}" alt="">
+            </div>
+            <div class="col-md-3">
+                <div class="addres">
+                    <span><i class="bi bi-pin-map"></i></span>
+                    <h5>Address</h5>
+                    <p>Miti Mirefu Street,<br>
+                        Shinyanga, Tanzania.</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="phone-no">
+                    <span><i class="bi bi-phone-vibrate"></i></span>
+                    <h5>Tupigie</h5>
+                    <p>0759 436625 <br> 0759116341</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="email-addr">
+                    <span><i class="bi bi-envelope-at"></i></span>
+                    <h5>Email</h5>
+                    <p>daudjaphet@gmail.com <br>
+                    association_community@yahoo.co.uk</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr style="width: 90%; margin: 1.5rem auto; border: 1px dashed #525f7a;">
+<section class="mb-5">
+    <div class="container">
+        <div class="row gy-5">
+            <div class="col-md-8">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7963.339894084342!2d33.4148025149196!3d-3.6624395851847686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19cbcab466b93775%3A0x4d960c91def6b119!2sMiti%20Mirefu!5e0!3m2!1sen!2stz!4v1756889774124!5m2!1sen!2stz" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-4">
+                <div class="social-media ps-4">
+                    <h5>Mitandao Ya Kijamii</h5>
+                    <div class="instagram"><a href="#"><span><i class="bi bi-instagram"></i></span>Instagram</a></div>
+                    <div class="facebook"><a href="#"><span><i class="bi bi-facebook"></i></span>Facebook</a></div>
+                    <div class="youtube"><a href="#"><i class="bi bi-youtube"></i>Youtube</a></div>
+                    <div class="thread"><a href="#"><i class="bi bi-whatsapp"></i>WhatsApp</a></div>
+                    <div class="twitter-x"><a href="#"><i class="bi bi-twitter-x"></i>X-(twitter)</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
