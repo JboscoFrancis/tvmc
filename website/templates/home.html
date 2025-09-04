@@ -73,7 +73,7 @@
 #about-us .about-img{
   overflow: hidden;
   border-radius: 0.8rem;
-  height: 450px;
+  /* height: 450px; */
   width: 100%;
 }
 #about-us .about-img img{
@@ -113,6 +113,8 @@
 #cta .cta-card img{ 
   border-radius: 50%; 
   object-fit: cover;
+  width: 180px;
+  height: 180px;
 }
 #cta .cta-tag{
   font-size: 1.8rem;
@@ -190,7 +192,7 @@
 #news-event{
   box-shadow: 0px -30px 30px rgba(0, 0, 0, 0.04);
 }
-#news-event .container-fluid{
+/* #news-event .container-fluid{
   padding-left: 4rem;
   padding-right: 4rem;
 }
@@ -199,14 +201,17 @@
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
+} */
 #news-event .card-news{
   position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 #news-event .card-news img{
   height: 520px;
   width: 100%;
-  border-radius: 0.6rem;
+  border-radius: 1rem;
+  object-fit: cover;
 }
 #news-event .card-news::before{
   content: '';
@@ -370,7 +375,7 @@
 
 <section id="about-us">
   <div class="container py-5">
-    <div class="row justify-content-around">
+    <div class="row justify-content-around gy-3">
       <div class="col-md-6">
         <div class="about-img">
           <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="">
@@ -379,8 +384,8 @@
       <div class="col-md-5 d-flex align-items-center">
         <div class="about-us">
           <h3 class="sect-title">Who We Are</h3>
-          <h3>Giving a Voice to the Marginalized</h3>
-          <p>TVMC is a youth-led, non-governmental, non-partisan, and non-profit organization. The organization was founded in 2011 by a group of youth volunteers with a vision to create a society that respects the rights of children and women. The organization was officially registered as "The Voice of Marginalized Community" in 2014 by the Ministry of Community Development, Gender and Children. TVMC operates under the supervision of a board of directors. <a href="{% url 'about-us' %}"><i>Read More</i></a></p>
+          <h3 style="font-size: 2.5rem; margin-bottom: 1.4rem;">Giving a Voice to the Marginalized</h3>
+          <p>TVMC is a youth-led, non-governmental, non-partisan, and non-profit organization. The organization was founded in 2011 by a group of youth volunteers with a vision to create a society that respects the rights of children and women. The organization was officially registered as "The Voice of Marginalized Community" in 2014 by the Ministry of Community Development, Gender and Children. TVMC operates under the supervision of a board of directors. Utilizes a community-based approach to ensure well-strengthened <a href="{% url 'about-us' %}"><i>Read More</i></a></p>
           <!-- <button>Read more..</button> -->
           <div class="row stats-btn mt-3">
             <div class="col stats">
@@ -409,7 +414,7 @@
         <div class="cta-card">
           <div class="row gy-3 justify-content-center">
             <div class="col-8 col-md-3 text-center">
-              <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="" width="200">
+              <img class="img-fluid" src="{% static 'images/about.jpg' %}" alt="" width="">
             </div>
             <div class="col-12 col-md-9">
               <div class="cta-body">
@@ -502,17 +507,19 @@
 </section>
 
 <section id="news-event">
-  <div class="container-fluid py-5">
+  <div class="container py-5">
     <div class="row gy-4">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="section-title text-center">
           <h3 class="sect-title">News And Event</h3>
         </div>
-        <div class="row gy-4">
+        <div class="row gy-4 justify-content-around">
           <div class="col-md-5">
             {% for news in top_priority %}
             <div class="card-news">
-              <img class="" src="{{news.thumbnail.url}}" alt="">
+              <div class="img">
+                <img class="" src="{{news.thumbnail.url}}" alt="">
+              </div>
               <div class="news-info">
                 <h3 class="text-light news-heading" style="font-size: 1.4rem;">{{news.title}}</h3>
                 <p>{{news.body |truncatewords:50 |safe}}...</p>
@@ -521,7 +528,7 @@
             </div>
             {% endfor %}
           </div>
-          <div class="col-md-7 wrapper ps-3 pe-3">
+          <div class="col-md-6 wrapper ps-3 pe-3">
             {% for news in news %}
             <div class="row news-wrapper">
               <div class="col-md-3 thumbnail d-flex">
@@ -535,12 +542,6 @@
             </div>
             {% endfor %}
           </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="artcles ps-3 pe-3">
-        Important Articles
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
       </div>
     </div>

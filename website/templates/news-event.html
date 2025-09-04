@@ -63,7 +63,7 @@
                     <h3 class="ps-5">Top Read</h3>
                     {% for news in news %}
                     <div class="news">
-                        <img src="{% static 'images/school.jpg' %}" alt="">
+                        <img src="{{ news.thumbnail.url }}" alt="">
                         <div class="caption">
                             <div class="heading">
                                 <h4>{{news.title}}</h4>
