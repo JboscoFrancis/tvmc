@@ -510,66 +510,30 @@
         </div>
         <div class="row gy-4">
           <div class="col-md-5">
+            {% for news in top_priority %}
             <div class="card-news">
-              <img class="" src="{% static 'images/thumbnail.jpg' %}" alt="">
+              <img class="" src="{{news.thumbnail.url}}" alt="">
               <div class="news-info">
-                <h3 class="text-light news-heading" style="font-size: 1.4rem;">TVMC is proud to coordinate the participation of legal. mshndn sms.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, explicabo molestiae quia molestias eos adipisci quaerat accusamus eum pariatur odit beatae. Rerum id ipsa officiis dolore beatae quod quis maxime...</p>
-                <a class="btn btn-primary" href="">Read More..</a>
+                <h3 class="text-light news-heading" style="font-size: 1.4rem;">{{news.title}}</h3>
+                <p>{{news.body |truncatewords:50 |safe}}...</p>
+                <a class="btn btn-primary" href="{% url 'news-detail' news.slug %}">Read More..</a>
               </div>
             </div>
+            {% endfor %}
           </div>
           <div class="col-md-7 wrapper ps-3 pe-3">
+            {% for news in news %}
             <div class="row news-wrapper">
               <div class="col-md-3 thumbnail d-flex">
-                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+                <img class="img-fluid" src="{{news.thumbnail.url }}" alt="">
               </div>
               <div class="col-md-9 news">
-                <h3>TVMC is proud to coordinate the participation of legal. mshndn sms</h3>
-                <p><a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert somehow ipsum dolor sit, amet consectetur adipisicing elit.</a></p>
+                <h3>{{news.title}}</h3>
+                <p><a href="{% url 'news-detail' news.slug %}">{{news.body|truncatewords:20 |safe}}</a></p>
                 <small class="text-muted"><i>Posted: 12 July 2025</i></small>
               </div>
             </div>
-
-            <div class="row news-wrapper">
-              <div class="col-md-3 thumbnail">
-                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
-              </div>
-              <div class="col-md-9 news">
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
-              </div>
-            </div>
-
-            <div class="row news-wrapper">
-              <div class="col-md-3 thumbnail">
-                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
-              </div>
-              <div class="col-md-9 news">
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
-              </div>
-            </div>
-
-            <div class="row news-wrapper">
-              <div class="col-md-3 thumbnail">
-                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
-              </div>
-              <div class="col-md-9 news">
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
-              </div>
-            </div>
-
-            <div class="row news-wrapper">
-              <div class="col-md-3 thumbnail">
-                <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
-              </div>
-              <div class="col-md-9 news">
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit lotyh howp expert</p>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>

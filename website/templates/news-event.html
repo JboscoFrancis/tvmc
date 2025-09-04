@@ -2,30 +2,77 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .all-news{
+        padding: 0.8rem;
+    }
+    .all-news .news{
+        padding: 0.4rem 0.8rem;
+    }
+
+.top-read .news {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.top-read .news img {
+    flex-shrink: 0;
+    height: 130px;
+    width: 180px;
+    border-radius: 0.8rem;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.top-read .news .caption {
+    flex: 1;
+}
+
+.top-read .news .heading h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.top-read .news p {
+    margin: 0.3rem 0;
+    color: #555;
+}
+
+</style>
 <section>
     <div class="container py-4">
         <div class="row justify-content-between">
-            <div class="col-md-5 border">
+            <div class="col-md-5">
                 <div class="latest">
-                    <h3>Latest</h3>
-                    <div class="img">
-                        <img class="img-fluid" src="{% static 'images/thumbnail.jpg' %}" alt="">
+                    <h3 class="ps-5">The Latest</h3>
+                    {% for latest in latest %}
+                    <div class="img mt-4">
+                        <img class="img-fluid" src="{{latest.thumbnail.url}}" alt="" style="border-radius: 0.8rem; margin-bottom: 0.8rem;">
                     </div>
                     <div class="description">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae mollitia laudantium voluptatum nam accusantium.</p>
+                        <h4>{{latest.title}}</h4>
+                        <p>{{latest.date_created}}</p>
+                        <p><a class="news-link" href="">{{latest.body | truncatewords:22 | safe}}</a></p>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="col-md-6 border">
+            <div class="col-md-6 ">
                 <div class="top-read">
-                    <h3>Top Read</h3>
+                    <h3 class="ps-5">Top Read</h3>
+                    {% for news in news %}
                     <div class="news">
-                        <img src="{% static 'images/school.jpg' %}" alt="" style="float: left; height: 100%; width: 100px; display: block;">
+                        <img src="{% static 'images/school.jpg' %}" alt="">
                         <div class="caption">
-                            <div class="heading">Lorem ipsum dolor sit, amet consectetur adipisicing. Lorem, ipsum dolor. Lorem ipsum dolor sit amet.</div>
-                            <p>Posted: 24 Nov 2025 | reads 204</p>
+                            <div class="heading">
+                                <h4>{{news.title}}</h4>
+                            </div>
+                            <p><a class="news-link" href="">{{news.body | truncatewords:18 | safe}}</a></p>
+                            <p>Posted: {{news.date_created}} | <i class="bi bi-eye"></i>204</p>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -33,28 +80,25 @@
 </section>
 
 <section>
-    <div class="container py-3">
+    <div class="container py-4">
         <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="row">
-                                    <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
-                                <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
-                                <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
-                                <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
-                                <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
-                                <div class="col-md-4">
-                    <div class="news">news</div>
-                </div>
+            <div class="col-12 all-news">
+                <div class="row gy-4">
+                    <h3 class="text-center mb-4">ALL POSTS</h3>
+                    {% for news in all_news %}
+                    <div class="col-md-4">
+                        <div class="news">
+                            <div class="thumbnail">
+                                <img src="{{ news.thumbnail.url}}" alt="" style="height: 200px; width: 100%; border-radius: 0.8rem;">
+                            </div>
+                            <div class="description">
+                                <h4>{{news.title}}</h4>
+                                <p>{{news.date_created}} | Author</p>
+                                <p><a class="news-link" href="{% url 'news-detail' news.slug %}">{{news.body | truncatewords:20 | safe}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

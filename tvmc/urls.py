@@ -17,7 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf.urls.static import static
+from django.conf import settings
+
+admin.site.site_header = 'TVMC ADMIN'
+admin.site.index_title = 'Website Adminstration'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('website.urls'))
+    path('', include('website.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG: # This condition is key!
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

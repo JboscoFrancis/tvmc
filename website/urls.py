@@ -11,8 +11,7 @@ urlpatterns = [
     path('what-we-do', views.whatWeDo, name='what-we-do'),
     path('contact-us', views.contactUs, name='contact-us'),
     path('news-event', views.newsEvent, name='news-event'),
-    path('news-detail/:slug', views.newsDetail, name='news-detail'),
+    path('news-detail/<slug:slug>', views.newsDetail, name='news-detail'),
     path('publication', views.publication, name='publication'),
     path('gallery', views.gallery, name='gallery'),
-
 ]
