@@ -39,10 +39,39 @@
     color: #555;
 }
 
+/* Mobile view */
+@media (max-width: 768px) {
+    .top-read .news {
+        flex-direction: column; /* stack img on top */
+        align-items: center;    /* center align */
+        text-align: center;
+    }
+
+    .top-read .news img {
+        width: 100%;      /* full width */
+        height: auto;     /* auto height */
+        margin: 0 0 1rem; /* bottom spacing */
+    }
+
+    .top-read .news .caption {
+        width: 100%;
+    }
+}
+
+.latest h5,
+.news h5{
+    font-size: 1.2rem;
+}
+
 </style>
 <section>
+    <div class="container-fluid p-0 m-0">
+        <img src="{% static 'images/bg-banner.jpg' %}" alt="" style="height: 260px; width: 100%;">
+    </div>
+</section>
+<section>
     <div class="container py-4">
-        <div class="row justify-content-between">
+        <div class="row justify-content-between gy-3">
             <div class="col-md-5">
                 <div class="latest">
                     <h3 class="ps-5">The Latest</h3>
@@ -51,9 +80,9 @@
                         <img class="img-fluid" src="{{latest.thumbnail.url}}" alt="" style="border-radius: 0.8rem; margin-bottom: 0.8rem;">
                     </div>
                     <div class="description">
-                        <h4>{{latest.title}}</h4>
+                        <h5>{{latest.title}}</h5>
                         <p>{{latest.date_created}}</p>
-                        <p><a class="news-link" href="">{{latest.body | truncatewords:22 | safe}}</a></p>
+                        <p><a class="news-link" href="{% url 'news-detail' latest.slug %}">{{latest.body | truncatewords:22 | safe}}</a></p>
                     </div>
                     {% endfor %}
                 </div>
@@ -65,10 +94,10 @@
                     <div class="news">
                         <img src="{{ news.thumbnail.url }}" alt="">
                         <div class="caption">
-                            <div class="heading">
-                                <h4>{{news.title}}</h4>
+                            <div class="">
+                                <h5>{{news.title}}</h5>
                             </div>
-                            <p><a class="news-link" href="">{{news.body | truncatewords:18 | safe}}</a></p>
+                            <p><a class="news-link" href="{% url 'news-detail' news.slug %}">{{news.body | truncatewords:18 | safe}}</a></p>
                             <p>Posted: {{news.date_created}} | <i class="bi bi-eye"></i>204</p>
                         </div>
                     </div>
@@ -92,7 +121,7 @@
                                 <img src="{{ news.thumbnail.url}}" alt="" style="height: 200px; width: 100%; border-radius: 0.8rem;">
                             </div>
                             <div class="description">
-                                <h4>{{news.title}}</h4>
+                                <h5>{{news.title}}</h5>
                                 <p>{{news.date_created}} | Author</p>
                                 <p><a class="news-link" href="{% url 'news-detail' news.slug %}">{{news.body | truncatewords:20 | safe}}</a></p>
                             </div>
